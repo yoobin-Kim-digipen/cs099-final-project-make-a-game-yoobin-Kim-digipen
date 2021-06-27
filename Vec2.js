@@ -1,3 +1,10 @@
+// Name       : Yoobin-Kim
+// Assignment : final_project-make_a_game
+// Course     : CS099
+// Spring 2021
+
+
+
 class Vec2
 {
     constructor(tempX = 0,tempY = 0)
@@ -62,6 +69,16 @@ class Vec2
         this.y += v2.y;
     }
 
+    addToTimeDelta(v2)
+    {
+        this.x += v2.x * deltaTime/1000;
+        this.y += v2.y * deltaTime/1000;
+        
+    }
+
+
+
+
     subtract(v2)
     {
         var v3 = new Vec2(this.x - v2.x,this.y-v2.y);
@@ -123,6 +140,11 @@ class Vec2
     reactionX()
     {
         return new Vec2(-this.x,0);
+    }
+
+    reaction()
+    {
+        return new Vec2(-this.x,-this.y);
     }
 
 

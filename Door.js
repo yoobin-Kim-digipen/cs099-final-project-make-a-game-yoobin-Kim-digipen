@@ -1,11 +1,18 @@
+// Name       : Yoobin-Kim
+// Assignment : final_project-make_a_game
+// Course     : CS099
+// Spring 2021
+
+
 class Door{
-    constructor(_doorImage,_x,_y,_width,_height)
+    constructor(_doorImage,_x,_y,_width,_height,sfx)
     {
         this.doorImage = _doorImage;
         this.x = _x;
         this.y = _y;
         this.width = _width;
         this.height = _height;
+        this.sfx = sfx;
 
         //animDelta
         this.animDelta = 0;
@@ -13,6 +20,7 @@ class Door{
 
         //열리는지 확인
         this.isOpen = 0;
+        this.musicCheck = 0;
 
 
 
@@ -22,14 +30,13 @@ class Door{
 
     colPlayer(player)
     {
-        if(this.checkRange(player.downRight.x,player.downRight.x,this.x,this.x+this.width) && this.checkRange(player.downRight.y,player.downRight.y+10,this.y,this.y+this.height))
+        if(this.checkRange(player.downRight.x,player.downRight.x,this.x,this.x+this.width*4) && this.checkRange(player.downRight.y,player.downRight.y+10,this.y,this.y+this.height) && player.startPlay == 1)
             {
 
 
 
-                console.log("데였습니다")
-                player.pos.addTo(player.moveVel.reactionX());
-                player.gravityVel.x = 0;
+                console.log("데였습니다");
+                player.pos.x = this.x - 70;
                 
 
             }
@@ -59,6 +66,11 @@ class Door{
                 image(this.doorImage[1],this.x,this.y,this.width,this.height);
             }else{
                 image(this.doorImage[0],this.x,this.y,this.width,this.height);
+                if(this.musicCheck == 0)
+                {
+                    this.sfx.play();
+                    this.musicCheck = 1;
+                }
             }
 
 
