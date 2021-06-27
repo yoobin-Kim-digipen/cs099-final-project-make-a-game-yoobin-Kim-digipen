@@ -4,6 +4,7 @@
 // Spring 2021
 
 
+
 class Archer
 {
     constructor(_type,_defaultImage,_x,_y,_right,_left,_up,_down,_rayDown,_rightAttack = null,_leftAttack,_moveImage,_effectImage,sige,sfx)
